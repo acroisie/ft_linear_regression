@@ -4,41 +4,40 @@ This project aims to implement a simple linear regression using the gradient des
 
 ## Fundamental Concepts
 
-- **Target Variable (\(y\)):** Represents the value we aim to predict.
+- **Target Variable (y):** Represents the value we aim to predict.
 
-- **Input Variables (\(x, x_1, x_2, \ldots\)):** These are the data we use for prediction, forming our dataset.
+- **Input Variables (x, x1, x2, ...):** These are the data we use for prediction, forming our dataset.
 
-- **\(m\):** The number of examples in our dataset.
+- **m:** The number of examples in our dataset.
 
-- **\(n\):** The number of features or input variables.
+- **n:** The number of features or input variables.
 
 ## Linear Regression Model
 
-Our linear regression model aims to predict \(y\) using the following equation:
+Our linear regression model aims to predict y using the following equation:
 
-\[ F(x) = \theta_1 x + \theta_0 \]
+    F(x) = θ1 * x + θ0
 
-Where \(\theta_1\) is the slope of the regression line, and \(\theta_0\) is the y-intercept.
+Where θ1 is the slope of the regression line, and θ0 is the y-intercept.
 
 ## Cost Function (Mean Squared Error)
 
 The cost function measures the performance of our model. For linear regression, we use Mean Squared Error (MSE), calculated as follows:
 
-\[ \text{MSE} = \frac{1}{m} \sum_{i=1}^{m} (F(x_i) - y_i)^2 \]
+    MSE = (1/m) * Σ (F(xi) - yi)^2
 
-It represents the average of the squared errors between our model predictions (\(F(x_i)\)) and the actual values (\(y_i\)).
+It represents the average of the squared errors between our model predictions (F(xi)) and the actual values (yi).
 
 ## Gradient Descent
 
-Gradient descent is an optimization algorithm used to minimize the cost function. It iteratively adjusts the parameters (\(\theta_1\) and \(\theta_0\)) using the partial derivatives of the cost function with respect to these parameters.
+Gradient descent is an optimization algorithm used to minimize the cost function. It iteratively adjusts the parameters (θ1 and θ0) using the partial derivatives of the cost function with respect to these parameters.
 
-The algorithm is iterative and uses the following formula to update the parameters (\(\theta_1\) and \(\theta_0\)):
+The algorithm is iterative and uses the following formula to update the parameters (θ1 and θ0):
 
-\[ \theta_{1_{\text{new}}} = \theta_{1_{\text{old}}} - \alpha \cdot \frac{1}{m} \sum_{i=1}^{m} (F(x_i) - y_i) \cdot x_i \]
+    θ1_new = θ1_old - α * (1/m) * Σ (F(xi) - yi) * xi
+    θ0_new = θ0_old - α * (1/m) * Σ (F(xi) - yi)
 
-\[ \theta_{0_{\text{new}}} = \theta_{0_{\text{old}}} - \alpha \cdot \frac{1}{m} \sum_{i=1}^{m} (F(x_i) - y_i) \]
-
-Where \(\alpha\) is the learning rate, a parameter controlling the step size during gradient descent.
+Where α is the learning rate, a parameter controlling the step size during gradient descent.
 
 ## Running the Project
 
