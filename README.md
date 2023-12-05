@@ -45,12 +45,22 @@ Where α is the learning rate, a parameter controlling the step size during grad
 
 2. **Install Dependencies:** Run the following command in your project's terminal to install the necessary dependencies:
    ```bash
-   pip install numpy matplotlib
+   pip install matplotlib
    ```
 
-3. **Run the Program:** Execute the `ft_linear_regression.py` script to initiate the model training process.
+3. **Run the Program:** Execute the `train.py` script to initiate the model training process.
    ```bash
-   python ft_linear_regression.py
+   python train.py
    ```
 
 4. **Customization:** You can customize the `data.csv` file with your own training data and adjust hyperparameters in the script as needed.
+
+**Using predict.py after Training:**
+
+Once the training is complete, you can use the `predict.py` script for interactive predictions. Run the following command:
+```bash
+python predict.py
+```
+Enter the mileage when prompted, and the script will provide the estimated price using the trained model.
+
+**Note:** This readme has been simplified and adapted in accordance with the user's notes, with the assistance of chatGPT for formatting.
