@@ -1,3 +1,5 @@
+**Note:** This readme has been refactored and adapted based on my notes, with the assistance of chatGPT for formatting.
+
 # ft_linear_regression
 
 This project aims to implement a simple linear regression using the gradient descent method. Here's an overview of key concepts:
@@ -62,5 +64,3 @@ Once the training is complete, you can use the `predict.py` script for interacti
 python predict.py
 ```
 Enter the mileage when prompted, and the script will provide the estimated price using the trained model.
-
-**Note:** This readme has been simplified and adapted in accordance with the user's notes, with the assistance of chatGPT for formatting.
