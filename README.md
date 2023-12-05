@@ -1,4 +1,4 @@
-**Note:** This readme has been refactored and adapted based on my notes, with the assistance of chatGPT for formatting.
+**Note:** This readme has been refactored and adapted based on my notes, with the assistance of chatGPT.
 
 # ft_linear_regression
 
