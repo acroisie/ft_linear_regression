@@ -1,41 +1,30 @@
-import csv
 import matplotlib.pyplot as plt
+from utils import load_data, normalize, denormalize, model
 
-# Read data from csv file
-mileages = []
-prices = []
+# Load and normalize data
+mileages, prices = load_data('data.csv')
+min_mileage, max_mileage = min(mileages), max(mileages)
+min_price, max_price = min(prices), max(prices)
 
-with open('data.csv', 'r') as file:
-    dataset = csv.reader(file)
-    next(dataset)
-    for row in dataset:
-        mileages.append(float(row[0]))
-        prices.append(float(row[1]))
+mileages_norm = [normalize(m, min_mileage, max_mileage) for m in mileages]
+prices_norm = [normalize(p, min_price, max_price) for p in prices]
 
 # Initialize parameters
 theta0 = 0
 theta1 = 0
 learning_rate = 0.1
 iterations = 1000
-m = len(mileages)
+m = len(mileages_norm)
 costs_history = []
-
-# Normalize data
-mileages = [(m - min(mileages)) / (max(mileages) - min(mileages)) for m in mileages]
-prices = [(p - min(prices)) / (max(prices) - min(prices)) for p in prices]
-
-# Model function
-def model(mileage):
-    return theta0 + theta1 * mileage
 
 # Cost function
 def cost():
-    return (1 / (2 * m)) * sum((model(mileages[i]) - prices[i]) ** 2 for i in range(m))
+    return (1 / (2 * m)) * sum((model(mileages_norm[i], theta0, theta1) - prices_norm[i]) ** 2 for i in range(m))
 
 # Gradient descent
 for _ in range(iterations):
-    tmp_theta0 = (1 / m) * sum(model(mileages[i]) - prices[i] for i in range(m))
-    tmp_theta1 = (1 / m) * sum((model(mileages[i]) - prices[i]) * mileages[i] for i in range(m))
+    tmp_theta0 = (1 / m) * sum(model(mileages_norm[i], theta0, theta1) - prices_norm[i] for i in range(m))
+    tmp_theta1 = (1 / m) * sum((model(mileages_norm[i], theta0, theta1) - prices_norm[i]) * mileages_norm[i] for i in range(m))
     
     theta0 -= learning_rate * tmp_theta0
     theta1 -= learning_rate * tmp_theta1
@@ -50,7 +39,7 @@ with open('theta.txt', 'w') as file:
 # Bonus stuff
 plt.subplot(1, 2, 1)
 plt.scatter(mileages, prices, label='Actual Data')
-plt.plot(mileages, [model(m) for m in mileages], color='red', label='Linear Regression')
+plt.plot(mileages, [denormalize(model(normalize(m, min_mileage, max_mileage), theta0, theta1), min_price, max_price) for m in mileages], color='red', label='Linear Regression')
 plt.xlabel('Mileage')
 plt.ylabel('Price')
 plt.legend()
