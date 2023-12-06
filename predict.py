@@ -1,4 +1,4 @@
-from utils import load_data, normalize, denormalize, model
+from utils import load_data, normalize, denormalize, model, signal_handler
 
 # Load thetas
 with open('theta.txt', 'r') as file:

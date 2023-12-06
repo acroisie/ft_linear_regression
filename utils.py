@@ -1,4 +1,14 @@
 import csv
+import signal
+import sys
+
+# signal handler
+def signal_handler(sig, frame):
+    print('\nMy job here is done.')
+    sys.exit(0)
+
+# set signal handler
+signal.signal(signal.SIGINT, signal_handler)
 
 # load data from csv file
 def load_data(file_name):
