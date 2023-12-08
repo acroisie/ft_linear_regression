@@ -41,25 +41,45 @@ The algorithm is iterative and uses the following formula to update the paramete
 
 Where α is the learning rate, a parameter controlling the step size during gradient descent.
 
+# ft_linear_regression
+
+This project implements a simple linear regression using the gradient descent method. It has been refactored and adapted based on my notes, with the assistance of chatGPT.
+
 ## Running the Project
 
-1. **Install Python:** Ensure you have Python installed on your machine.
-
-2. **Install Dependencies:** Run the following command in your project's terminal to install the necessary dependencies:
+1. **Clone the Repository:**
    ```bash
-   pip install matplotlib
+   git clone https://github.com/your-username/your-project.git
    ```
 
-3. **Run the Program:** Execute the `train.py` script to initiate the model training process.
+2. **Navigate to the Project Directory:**
+   ```bash
+   cd your-project
+   ```
+
+3. **Create and Activate the Virtual Environment:**
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+
+4. **Install Dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+5. **Run the Training Script:**
    ```bash
    python train.py
    ```
 
-4. **Customization:** You can customize the `data.csv` file with your own training data and adjust hyperparameters in the script as needed.
+6. **Customization:**
+   - You can customize the `data.csv` file with your own training data.
+   - Adjust hyperparameters in the script (`train.py`) as needed.
 
-**Using predict.py after Training:**
+**Making Predictions after Training:**
 
-Once the training is complete, you can use the `predict.py` script for interactive predictions. Run the following command:
+After training, use the `predict.py` script for interactive predictions. Run the following command:
 ```bash
 python predict.py
 ```
