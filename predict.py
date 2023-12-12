@@ -1,6 +1,10 @@
 from utils import load_data, normalize, denormalize, model, signal_handler
+import os
 
 # Load thetas
+if not os.path.exists('theta.txt'):
+    print("theta.txt doesn't exist.")
+    exit()
 with open('theta.txt', 'r') as file:
     lines = file.readlines()
     theta0 = float(lines[0])

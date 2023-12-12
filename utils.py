@@ -1,6 +1,7 @@
 import csv
 import signal
 import sys
+import os
 
 # signal handler
 def signal_handler(sig, frame):
@@ -12,6 +13,9 @@ signal.signal(signal.SIGINT, signal_handler)
 
 # load data from csv file
 def load_data(file_name):
+    if not os.path.exists(file_name):
+        print(f"{file_name} doesn't exist.")
+        exit()
     mileages = []
     prices = []
     with open(file_name, 'r') as file:
