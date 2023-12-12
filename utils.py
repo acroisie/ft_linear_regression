@@ -31,7 +31,7 @@ def normalize(value, min_value, max_value):
     return (value - min_value) / (max_value - min_value)
 
 def denormalize(value, min_value, max_value):
-    return value * ((max_value - min_value) + min_value)
+    return value * (max_value - min_value) + min_value
 
 # model
 def model(mileage, theta0, theta1):

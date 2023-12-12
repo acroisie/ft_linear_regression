@@ -26,10 +26,6 @@ while True:
         print("Please enter a valid mileage.")
         continue
 
-    mileage_norm = normalize(mileage, min_mileage, max_mileage)
+    price_norm = model(mileage, theta0, theta1)
 
-    price_norm = model(mileage_norm, theta0, theta1)
-
-    price = denormalize(price_norm, min(prices), max(prices))
-
-    print(f"The estimated price for a car with {mileage} km is {price} euros.")
+    print(f"The estimated price for a car with {mileage} km is {price_norm} euros.")

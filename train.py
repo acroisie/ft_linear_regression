@@ -1,5 +1,8 @@
+import matplotlib
 import matplotlib.pyplot as plt
 from utils import load_data, normalize, denormalize, model
+
+matplotlib.use("webagg")
 
 # Load and normalize data
 mileages, prices = load_data('data.csv')
@@ -12,8 +15,8 @@ prices_norm = [normalize(p, min_price, max_price) for p in prices]
 # Initialize parameters
 theta0 = 0
 theta1 = 0
-learning_rate = 0.1
-iterations = 1000
+learning_rate = 0.01
+iterations = 5000
 m = len(mileages_norm)
 costs_history = []
 
@@ -31,10 +34,24 @@ for _ in range(iterations):
 
     costs_history.append(cost())
 
+theta0_denorm = (
+        theta0 * (max(prices) - min(prices))
+        + min(prices)
+        - theta1
+        * min(mileages)
+        * (max(prices) - min(prices))
+        / (max(mileages) - min(mileages))
+    )
+theta1_denorm = (
+    theta1
+    * (max(prices) - min(prices))
+    / (max(mileages) - min(mileages))
+)
+
 # Save parameters
 with open('theta.txt', 'w') as file:
-    file.write(str(theta0) + '\n')
-    file.write(str(theta1))
+    file.write(str(theta0_denorm) + '\n')
+    file.write(str(theta1_denorm))
 
 # Bonus stuff
 plt.subplot(1, 2, 1)
