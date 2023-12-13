@@ -15,8 +15,8 @@ prices_norm = [normalize(p, min_price, max_price) for p in prices]
 # Initialize parameters
 theta0 = 0
 theta1 = 0
-learning_rate = 0.01
-iterations = 5000
+learning_rate = 0.1
+iterations = 1000
 m = len(mileages_norm)
 costs_history = []
 
